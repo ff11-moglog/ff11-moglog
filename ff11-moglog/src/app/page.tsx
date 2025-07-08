@@ -8,7 +8,7 @@ import CampaignTabsHeaderAndBody from "./components/CampaignTabsHeaderAndBody";
 
 
 // --- 月次更新用定数 ---
-export const MONTHLY_INFO = {
+const MONTHLY_INFO = {
   ambu1: "クゥダフ族",
   ambu2: "ウラグナイト族",
   loginPointGrantPeriod: "2025年7月2日（水）23:00頃",
