@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 export default function Header() {
-  const [menuOpen, setMenuOpen] = useState(false);
+  // const [menuOpen, setMenuOpen] = useState(false); // 未使用のためコメントアウト
   return (
     <header className="w-full bg-[#0097a7] border-b border-[#0097a7] shadow-sm fixed top-0 left-0 right-0 z-50">
       {/* サイト説明: 検索にひっかかりやすいキーワードを含める */}

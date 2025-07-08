@@ -19,7 +19,7 @@ export default function CampaignTabs({
   currentPeriod,
   nextPeriod,
 }: CampaignTabsProps) {
-  const [tab, setTab] = useState<"current" | "next">("current");
+  const [tab] = useState<"current" | "next">("current");
   const activeList = tab === "current" ? currentList : nextList;
   const period = tab === "current" ? currentPeriod : nextPeriod;
 
