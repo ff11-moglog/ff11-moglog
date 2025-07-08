@@ -21,6 +21,9 @@ export const metadata: Metadata = {
     { rel: "icon", url: "/moglogicon.png", type: "image/png" },
     { rel: "shortcut icon", url: "/moglogicon.png", type: "image/png" },
   ],
+  other: {
+    "google-site-verification": "goakkrhm4gyd2Xl_P03Q7rshD66t1-0ZlRAVX0tS91M"
+  }
 };
 
 export default function RootLayout({
