@@ -1,0 +1,52 @@
+"use client";
+import { useState } from "react";
+
+export default function Header() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  return (
+    <header className="w-full bg-[#0097a7] border-b border-[#0097a7] shadow-sm fixed top-0 left-0 right-0 z-50">
+      {/* サイト説明: 検索にひっかかりやすいキーワードを含める */}
+      <div className="w-full bg-[#00838f] text-[#fffde7] text-xs md:text-sm px-4 py-1 tracking-wide font-semibold text-center select-none" style={{letterSpacing: '0.04em'}}>
+        <span>
+          FF11（ファイナルファンタジーXI）最新ニュース・公式キャンペーン・アンバスケード・ログインポイント・バージョンアップ・イベント・用語辞典連携・便利チェックリスト等をまとめて見やすく掲載するコミュニティ情報サイト「Moglog」
+        </span>
+      </div>
+      <div className="max-w-6xl mx-auto flex items-center justify-between px-4 py-1.5">
+        <div className="flex items-center gap-2">
+          <a href="/" className="flex items-center gap-2 group">
+            <img src="/moglogicon.png" alt="Moglog" className="w-8 h-auto drop-shadow transition-transform group-hover:scale-105" />
+            <span className="text-2xl font-bold text-[#ffd600] font-sans rounded drop-shadow-sm tracking-wide group-hover:text-[#fff9c4]" style={{letterSpacing: '0.08em'}}>Moglog</span>
+          </a>
+        </div>
+        {/* PCナビ */}
+        {/* <nav className="hidden md:flex gap-4 text-sm font-medium">
+          <a href="/news" className="text-[#ffd600] hover:text-[#fff9c4] transition">ニュース</a>
+          <a href="/campaign" className="text-[#ffd600] hover:text-[#fff9c4] transition">キャンペーン</a>
+          <a href="/checklist" className="text-[#ffd600] hover:text-[#fff9c4] transition">チェックリスト</a>
+        </nav> */}
+        {/* ハンバーガーアイコン（モバイル用） 非表示中 */}
+        {/*
+        <button
+          className="md:hidden flex flex-col justify-center items-center w-8 h-8 rounded focus:outline-none focus:ring-2 focus:ring-[#ffd600]"
+          aria-label="メニューを開く"
+          onClick={() => setMenuOpen((v) => !v)}
+        >
+          <span className={`block w-5 h-0.5 bg-cyan-700 mb-1 transition-all duration-200 ${menuOpen ? 'rotate-45 translate-y-1.5' : ''}`}></span>
+          <span className={`block w-5 h-0.5 bg-cyan-700 mb-1 transition-all duration-200 ${menuOpen ? 'opacity-0' : ''}`}></span>
+          <span className={`block w-5 h-0.5 bg-cyan-700 transition-all duration-200 ${menuOpen ? '-rotate-45 -translate-y-1.5' : ''}`}></span>
+        </button>
+        */}
+      </div>
+      {/* モバイルメニュー 非表示中 */}
+      {/*
+      {menuOpen && (
+        <nav className="md:hidden bg-white bg-opacity-95 border-b border-cyan-200 shadow-sm px-6 py-4 animate-fade-in-down">
+          <a href="/news" className="block py-2 text-cyan-900 hover:text-cyan-600 transition">ニュース</a>
+          <a href="/campaign" className="block py-2 text-cyan-900 hover:text-cyan-600 transition">キャンペーン</a>
+          <a href="/checklist" className="block py-2 text-cyan-900 hover:text-cyan-600 transition">チェックリスト</a>
+        </nav>
+      )}
+      */}
+    </header>
+  );
+}
