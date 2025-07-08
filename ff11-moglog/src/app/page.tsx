@@ -186,7 +186,7 @@ export default async function Home() {
               <span>キャンペーン期間：</span>
               {currentCampaignList.length > 0 ? (
                 <a
-                  href="https://www.playonline.com/ff11/campaign/index.html"
+                  href="http://www.playonline.com/ff11/campaign/login/login144.html"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-yellow-700 font-bold underline hover:text-yellow-900"
@@ -208,7 +208,7 @@ export default async function Home() {
                 className="text-yellow-700 font-bold underline hover:text-yellow-900"
                 title="公式バージョンアップ情報"
               >
-                2025年8月上旬予定
+                2025年7月10日（木）
               </a>
             </div>
           </div>
