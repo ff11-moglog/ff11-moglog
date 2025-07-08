@@ -1,5 +1,7 @@
 "use client";
 import { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -13,16 +15,16 @@ export default function Header() {
       </div>
       <div className="max-w-6xl mx-auto flex items-center justify-between px-4 py-1.5">
         <div className="flex items-center gap-2">
-          <a href="/" className="flex items-center gap-2 group">
-            <img src="/moglogicon.png" alt="Moglog" className="w-8 h-auto drop-shadow transition-transform group-hover:scale-105" />
+          <Link href="/" className="flex items-center gap-2 group">
+            <Image src="/moglogicon.png" alt="Moglog" width={32} height={32} className="w-8 h-auto drop-shadow transition-transform group-hover:scale-105" />
             <span className="text-2xl font-bold text-[#ffd600] font-sans rounded drop-shadow-sm tracking-wide group-hover:text-[#fff9c4]" style={{letterSpacing: '0.08em'}}>Moglog</span>
-          </a>
+          </Link>
         </div>
         {/* PCナビ */}
         {/* <nav className="hidden md:flex gap-4 text-sm font-medium">
-          <a href="/news" className="text-[#ffd600] hover:text-[#fff9c4] transition">ニュース</a>
-          <a href="/campaign" className="text-[#ffd600] hover:text-[#fff9c4] transition">キャンペーン</a>
-          <a href="/checklist" className="text-[#ffd600] hover:text-[#fff9c4] transition">チェックリスト</a>
+          <Link href="/news" className="text-[#ffd600] hover:text-[#fff9c4] transition">ニュース</Link>
+          <Link href="/campaign" className="text-[#ffd600] hover:text-[#fff9c4] transition">キャンペーン</Link>
+          <Link href="/checklist" className="text-[#ffd600] hover:text-[#fff9c4] transition">チェックリスト</Link>
         </nav> */}
         {/* ハンバーガーアイコン（モバイル用） 非表示中 */}
         {/*
@@ -41,9 +43,9 @@ export default function Header() {
       {/*
       {menuOpen && (
         <nav className="md:hidden bg-white bg-opacity-95 border-b border-cyan-200 shadow-sm px-6 py-4 animate-fade-in-down">
-          <a href="/news" className="block py-2 text-cyan-900 hover:text-cyan-600 transition">ニュース</a>
-          <a href="/campaign" className="block py-2 text-cyan-900 hover:text-cyan-600 transition">キャンペーン</a>
-          <a href="/checklist" className="block py-2 text-cyan-900 hover:text-cyan-600 transition">チェックリスト</a>
+          <Link href="/news" className="block py-2 text-cyan-900 hover:text-cyan-600 transition">ニュース</Link>
+          <Link href="/campaign" className="block py-2 text-cyan-900 hover:text-cyan-600 transition">キャンペーン</Link>
+          <Link href="/checklist" className="block py-2 text-cyan-900 hover:text-cyan-600 transition">チェックリスト</Link>
         </nav>
       )}
       */}
