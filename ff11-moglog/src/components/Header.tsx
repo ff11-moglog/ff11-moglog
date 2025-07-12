@@ -17,6 +17,9 @@ export default function Header() {
       <meta property="og:description" content="FF11プレイヤー向けのチェックリスト＆キャンペーン情報サイト。" />
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://ff11-moglog.vercel.app/" />
+      <meta property="og:title" content="モグログ | FF11便利情報サイト" />
+      <meta property="og:image" content="https://ff11-moglog.vercel.app/moglogicon.png" />
+      <meta name="twitter:card" content="summary_large_image" />
 
       <div className="max-w-6xl mx-auto flex items-center justify-between px-4 py-0.5">
         <div className="flex items-center gap-2">
