@@ -1,63 +1,53 @@
-
-
-
 import * as React from "react";
 import Parser from "rss-parser";
 import CampaignTabsHeaderAndBody from "./components/CampaignTabsHeaderAndBody";
 
+const MONTHLY_ANBAS={
+  ambu1: "ヤグード族",
+  ambu2: "キノコ族",
+  ambu1_url: "https://wiki.ffo.jp/html/35653.html",
+  ambu2_url: "https://wiki.ffo.jp/html/38360.html",
+};
 
+const MONTHLY_LOGINPOINT={
+  loginPointGrantPeriod: "8月4日（月）23:00頃",
+  loginPointExchangePeriod: "2025年8月11日（月）23:59頃",
+};
 
 // --- 月次更新用定数 ---
-const MONTHLY_INFO = {
-  ambu1: "クゥダフ族",
-  ambu2: "ウラグナイト族",
-  loginPointGrantPeriod: "2025年7月2日（水）23:00頃",
-  loginPointExchangePeriod: "2025年7月9日（水）23:59頃",
-  nextCampaignPeriod: "2025年7月11日（金）17:00頃 ～ 7月17日（木）23:59頃",
-  allCampaignList: [
+const MONTHLY_CAMPAIGN = {
+  currentPeriod: "2025年7月11日（金）17:00頃 ～ 7月17日（木）23:59頃",
+  nextCampaignPeriod: "未定",
+  currentCampaignList: [
     {
       name: "経験値ステップアップキャンペーン",
       url: "https://wiki.ffo.jp/html/35289.html",
-      start: "2025-07-11T17:00:00+09:00",
-      end: "2025-07-17T23:59:00+09:00",
     },
     {
       name: "キャパシティポイントステップアップキャンペーン",
       url: "https://wiki.ffo.jp/html/35288.html",
-      start: "2025-07-11T17:00:00+09:00",
-      end: "2025-07-17T23:59:00+09:00",
     },
     {
       name: "モンストロスプレッジ経験値ステップアップキャンペーン",
       url: "https://wiki.ffo.jp/html/35290.html",
-      start: "2025-07-11T17:00:00+09:00",
-      end: "2025-07-17T23:59:00+09:00",
     },
     {
       name: "同盟戦績ボーナスキャンペーン",
       url: "https://wiki.ffo.jp/html/32342.html",
-      start: "2025-07-11T17:00:00+09:00",
-      end: "2025-07-17T23:59:00+09:00",
     },
     {
       name: "合成スキルアップ確率2倍キャンペーン",
       url: "https://wiki.ffo.jp/html/30078.html",
-      start: "2025-07-11T17:00:00+09:00",
-      end: "2025-07-17T23:59:00+09:00",
     },
     {
       name: "A.M.A.N. トローブ オリジナル装備品入手確率アップキャンペーン",
       url: "https://wiki.ffo.jp/html/38970.html",
-      start: "2025-07-11T17:00:00+09:00",
-      end: "2025-07-17T23:59:00+09:00",
     },
+  ],
+  nextCampaignList: [
   ],
 };
 
-// --- 月次情報からリストを生成 ---
-const now = new Date();
-const currentCampaignList = MONTHLY_INFO.allCampaignList.filter(c => new Date(c.start) <= now && now <= new Date(c.end));
-const nextCampaignList = MONTHLY_INFO.allCampaignList.filter(c => new Date(c.start) > now);
 
 export const revalidate = 3600;
 
@@ -113,13 +103,14 @@ export default async function Home() {
     getNewsList(),
     getTopicsList(),
   ]);
+
   return (
     <main className="min-h-screen flex flex-col items-center bg-gradient-to-b from-[#f5f8fa] to-[#e6f0f5] w-full">
       {/* タイトル・メニュー分の余白 */}
-      <div className="h-[88px] md:h-[88px]" />
+      <div className="h-[52px] md:h-[52px]" />
 
       {/* 今月の注目帯（やや黄色っぽいグレー・固定表示） */}
-      <div className="w-full bg-[#f7f3e7] border-y border-[#e0e0c0] shadow-sm mb-4 sticky top-[88px] z-30">
+      <div className="w-full bg-[#f7f3e7] border-y border-[#e0e0c0] shadow-sm mb-4 sticky top-[52px] z-30">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-1 px-2 md:px-0 min-h-0">
           
           <div className="flex flex-col text-yellow-900 text-xs md:text-sm font-semibold leading-tight">
@@ -127,26 +118,26 @@ export default async function Home() {
               <span className="text-base md:text-lg">🛡️</span>
               <span>アンバス1章：</span>
               <a
-                href="https://wiki.ffo.jp/html/35602.html"
+                href={MONTHLY_ANBAS.ambu1_url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-yellow-700 font-bold underline hover:text-yellow-900"
                 title="FF11用語辞典でアンバスケードを見る"
               >
-                {MONTHLY_INFO.ambu1}
+                {MONTHLY_ANBAS.ambu1}
               </a>
             </div>
             <div className="flex items-center gap-1 min-h-0">
               <span className="text-base md:text-lg">🛡️</span>
               <span>アンバス2章：</span>
               <a
-                href="https://wiki.ffo.jp/html/38344.html"
+                href={MONTHLY_ANBAS.ambu2_url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-yellow-700 font-bold underline hover:text-yellow-900"
                 title="FF11用語辞典でアンバスケードを見る"
               >
-                {MONTHLY_INFO.ambu2}
+                {MONTHLY_ANBAS.ambu2}
               </a>
             </div>
           </div>
@@ -162,7 +153,7 @@ export default async function Home() {
                 className="text-yellow-700 font-bold underline hover:text-yellow-900"
                 title="公式ログインポイントページ"
               >
-                {MONTHLY_INFO.loginPointGrantPeriod}
+                {MONTHLY_LOGINPOINT.loginPointGrantPeriod}
               </a>
             </div>
             <div className="flex items-center gap-1 min-h-0">
@@ -175,7 +166,7 @@ export default async function Home() {
                 className="text-yellow-700 font-bold underline hover:text-yellow-900"
                 title="公式ログインポイントページ"
               >
-                {MONTHLY_INFO.loginPointExchangePeriod}
+                {MONTHLY_LOGINPOINT.loginPointExchangePeriod}
               </a>
             </div>
           </div>
@@ -184,15 +175,15 @@ export default async function Home() {
             <div className="flex items-center gap-1 min-h-0">
               <span className="text-base md:text-lg">🎉</span>
               <span>キャンペーン期間：</span>
-              {currentCampaignList.length > 0 ? (
+              {MONTHLY_CAMPAIGN.currentCampaignList.length > 0 ? (
                 <a
-                  href="http://www.playonline.com/ff11/campaign/login/login144.html"
+                  href="http://www.playonline.com/pcd/topics/ff11/detail/22616/detail.html"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-yellow-700 font-bold underline hover:text-yellow-900"
                   title="公式キャンペーンページ"
                 >
-                  {`${currentCampaignList[0].start.slice(0, 10).replace(/-/g, "/")} ～ ${currentCampaignList[0].end.slice(0, 10).replace(/-/g, "/")}`}
+                  {`${MONTHLY_CAMPAIGN.currentPeriod}`}
                 </a>
               ) : (
                 <span className="text-yellow-700 font-bold">未開催</span>
@@ -247,10 +238,10 @@ export default async function Home() {
           {/* キャンペーン */}
           <section className="bg-white/90 rounded-2xl border md:col-span-2 border-yellow-100 p-4 shadow transition hover:shadow-lg duration-200">
             <CampaignTabsHeaderAndBody
-              currentList={currentCampaignList}
-              nextList={nextCampaignList}
-              currentPeriod={''}
-              nextPeriod={MONTHLY_INFO.nextCampaignPeriod}
+              currentList={MONTHLY_CAMPAIGN.currentCampaignList}
+              nextList={MONTHLY_CAMPAIGN.nextCampaignList}
+              currentPeriod={MONTHLY_CAMPAIGN.currentPeriod}
+              nextPeriod={MONTHLY_CAMPAIGN.nextCampaignPeriod}
             />
           </section>
 

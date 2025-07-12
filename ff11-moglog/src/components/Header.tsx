@@ -8,12 +8,17 @@ export default function Header() {
   return (
     <header className="w-full bg-[#0097a7] border-b border-[#0097a7] shadow-sm fixed top-0 left-0 right-0 z-50">
       {/* サイト説明: 検索にひっかかりやすいキーワードを含める */}
-      <div className="w-full bg-[#00838f] text-[#fffde7] text-xs md:text-sm px-4 py-1 tracking-wide font-semibold text-center select-none" style={{letterSpacing: '0.04em'}}>
-        <span>
-          FF11（ファイナルファンタジーXI）最新ニュース・公式キャンペーン・アンバスケード・ログインポイント・バージョンアップ・イベント・用語辞典連携・便利チェックリスト等をまとめて見やすく掲載するコミュニティ情報サイト「Moglog」
-        </span>
-      </div>
-      <div className="max-w-6xl mx-auto flex items-center justify-between px-4 py-1.5">
+
+      <title>モグログ | FF11プレイヤーのための便利サイト</title>
+      <meta name="description" content="FF11（ファイナルファンタジーXI）プレイヤー向けサイト『モグログ』。最新キャンペーン、クエスト・ミッションの進捗管理、装備・マウントのチェックリストを提供。" />
+      <meta name="keywords" content="FF11,ファイナルファンタジー11,モグログ,クエスト,ミッション,チェックリスト" />
+      <meta name="robots" content="index, follow" />
+      <meta property="og:title" content="モグログ | FF11便利サイト" />
+      <meta property="og:description" content="FF11プレイヤー向けのチェックリスト＆キャンペーン情報サイト。" />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content="https://ff11-moglog.vercel.app/" />
+
+      <div className="max-w-6xl mx-auto flex items-center justify-between px-4 py-0.5">
         <div className="flex items-center gap-2">
           <Link href="/" className="flex items-center gap-2 group">
             <Image src="/moglogicon.png" alt="Moglog" width={32} height={32} className="w-8 h-auto drop-shadow transition-transform group-hover:scale-105" />
