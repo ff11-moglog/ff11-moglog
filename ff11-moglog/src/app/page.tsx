@@ -1,5 +1,4 @@
 import * as React from "react";
-import Head from "next/head";
 import Parser from "rss-parser";
 import CampaignTabsHeaderAndBody from "./components/CampaignTabsHeaderAndBody";
 
@@ -99,30 +98,39 @@ async function getTopicsList() {
   }));
 }
 
+export const metadata = {
+  title: 'モグログ | FF11プレイヤーのための便利サイト',
+  description: 'FF11（ファイナルファンタジーXI）プレイヤー向けサイト『モグログ』。最新キャンペーン、クエスト・ミッションの進捗管理、装備・マウントのチェックリストを提供。',
+  keywords: ['FF11', 'ファイナルファンタジー11', 'モグログ', 'クエスト', 'ミッション', 'チェックリスト'],
+  robots: {
+    index: true,
+    follow: true,
+  },
+  openGraph: {
+    title: 'モグログ | FF11便利サイト',
+    siteName: 'Moglog',
+    description: 'FF11プレイヤー向けのチェックリスト＆キャンペーン情報サイト。',
+    type: 'website',
+    url: 'https://ff11-moglog.vercel.app/',
+    images: ['https://ff11-moglog.vercel.app/moglogicon.png'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'モグログ | FF11便利情報サイト',
+    description: 'FF11プレイヤー向けのチェックリスト＆キャンペーン情報サイト。',
+    images: ['https://ff11-moglog.vercel.app/moglogicon.png'],
+  },
+  alternates: {
+    canonical: 'https://ff11-moglog.vercel.app/',
+  },
+};
 export default async function Home() {
   const [newsList, topicsList] = await Promise.all([
     getNewsList(),
     getTopicsList(),
   ]);
-
   return (
-    <>
-      <Head>
-        <title>モグログ | FF11プレイヤーのための便利サイト</title>
-        <meta name="description" content="FF11（ファイナルファンタジーXI）プレイヤー向けサイト『モグログ』。最新キャンペーン、クエスト・ミッションの進捗管理、装備・マウントのチェックリストを提供。" />
-        <meta name="keywords" content="FF11,ファイナルファンタジー11,モグログ,クエスト,ミッション,チェックリスト" />
-        <meta name="robots" content="index, follow" />
-        <meta property="og:title" content="モグログ | FF11便利サイト" />
-        <meta property="og:site_name" content="Moglog" />
-        <meta property="og:description" content="FF11プレイヤー向けのチェックリスト＆キャンペーン情報サイト。" />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://ff11-moglog.vercel.app/" />
-        <meta property="og:title" content="モグログ | FF11便利情報サイト" />
-        <meta property="og:image" content="https://ff11-moglog.vercel.app/moglogicon.png" />
-        <meta name="twitter:card" content="summary_large_image" />
-      </Head>
-
-      <main className="min-h-screen flex flex-col items-center bg-gradient-to-b from-[#f5f8fa] to-[#e6f0f5] w-full">
+    <main className="min-h-screen flex flex-col items-center bg-gradient-to-b from-[#f5f8fa] to-[#e6f0f5] w-full">
         {/* タイトル・メニュー分の余白 */}
         <div className="h-[52px] md:h-[52px]" />
 
@@ -305,6 +313,5 @@ export default async function Home() {
           </div>
         </footer>
       </main>
-    </>
-  );
+    );
 }
