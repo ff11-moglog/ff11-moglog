@@ -8,7 +8,7 @@ const checklistTabs = [
   { label: 'マウント', href: '/checklist/mount' },
 ];
 
-type Props = {};
+type Props = object;
 
 export default function MountChecklistClient({}: Props) {
   const [checkedMount, setCheckedMount] = React.useState<string[]>([]);
