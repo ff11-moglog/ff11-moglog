@@ -3,7 +3,7 @@
 import * as React from "react";
 import Head from 'next/head';
 // ChecklistTableは削除されたため、ここで直接テーブルを描画します
-import { faceList, Face } from './faceList';
+import { faceList } from './faceList';
 import Link from 'next/link';
 
 const checklistTabs = [
@@ -40,7 +40,7 @@ export default function FaceChecklistPage() {
     try {
       localStorage.setItem('checkedFace', JSON.stringify(checkedFace));
     } catch {}
-  }, [checkedFace, faceList]);
+  }, [checkedFace]);
 
   // フィルタ・進捗ロジック
   const filteredList = faceList.filter(face => {

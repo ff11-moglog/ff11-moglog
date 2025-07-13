@@ -2,7 +2,7 @@
 import * as React from "react";
 import Head from 'next/head';
 // ChecklistTableは削除されたため、ここで直接テーブルを描画します
-import { mountList, Mount } from './mountList';
+import { mountList } from './mountList';
 
 import Link from 'next/link';
 
