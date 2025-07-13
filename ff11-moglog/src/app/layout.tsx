@@ -15,8 +15,6 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Moglog",
-  description: "Moglog - Final Fantasy XI Community Hub",
   icons: [
     { rel: "icon", url: "/moglogicon.png", type: "image/png" },
     { rel: "shortcut icon", url: "/moglogicon.png", type: "image/png" },
