@@ -135,7 +135,7 @@ export default async function Home() {
         <div className="h-[52px] md:h-[52px]" />
 
         {/* 今月の注目帯（やや黄色っぽいグレー・固定表示） */}
-        <div className="w-full bg-[#f7f3e7] border-y border-[#e0e0c0] shadow-sm mb-4 sticky top-[52px] z-30">
+        <div className="w-full bg-[#f7f3e7] border-y border-[#e0e0c0] shadow-sm mb-4 top-[52px] z-30">
           <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-1 px-2 md:px-0 min-h-0">
             
             <div className="flex flex-col text-yellow-900 text-xs md:text-sm font-semibold leading-tight">
@@ -172,7 +172,7 @@ export default async function Home() {
                 <span className="text-base md:text-lg">💎</span>
                 <span>ログポ付与期限：</span>
                 <a
-                  href="http://www.playonline.com/ff11/campaign/login/login144.html"
+                  href="http://www.playonline.com/ff11/campaign/login/login145.html"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-yellow-700 font-bold underline hover:text-yellow-900"
@@ -185,7 +185,7 @@ export default async function Home() {
                 <span className="text-base md:text-lg">💎</span>
                 <span>ログポ交換期限：</span>
                 <a
-                  href="http://www.playonline.com/ff11/campaign/login/login144.html"
+                  href="http://www.playonline.com/ff11/campaign/login/login145.html"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-yellow-700 font-bold underline hover:text-yellow-900"

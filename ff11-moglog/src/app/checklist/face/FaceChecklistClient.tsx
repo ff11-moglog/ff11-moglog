@@ -54,6 +54,8 @@ export default function FaceChecklistClient({ roleOptions }: Props) {
 
   return (
     <>
+      {/* ヘッダーとタブの間にスマホ用余白 */}
+      <div className="h-3 md:h-0" />
       <nav className="mb-6">
         <ul className="flex gap-2 border-b border-blue-200">
           {checklistTabs.map(tab => (
@@ -199,6 +201,8 @@ export default function FaceChecklistClient({ roleOptions }: Props) {
           </table>
         </div>
       </section>
+      {/* フッタ前の余白 */}
+      <div className="h-8 md:h-12" />
     </>
   );
 }
