@@ -65,12 +65,14 @@ export default function MountChecklistClient({}: Props) {
       </nav>
       <h1 className="text-2xl font-bold mb-6">マウント一覧 チェックリスト</h1>
       <div className="mb-2 text-xs md:text-sm font-semibold text-gray-700 flex items-center gap-4">
-        <span>進捗: {checkedMount.length} / {mountList.length}（{progress}%）</span>
+        <span>進捗: {checkedMount.length} / {mountList.length}</span>
       </div>
-      <div className="w-full max-w-md mb-2">
-        <div className="w-full h-3 bg-gray-200 rounded-full overflow-hidden">
+      <div className="w-full max-w-md mb-2 relative">
+        <div className="w-full h-3 bg-gray-200 rounded-full overflow-hidden relative">
           <div className="h-3 bg-green-400 transition-all duration-300" style={{ width: `${progress}%` }} />
+          <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-xs font-bold text-green-900 select-none" style={{textShadow:'0 1px 2px #fff,0 0 2px #fff'}}>{progress}%</span>
         </div>
+        <div className="text-[10px] text-gray-400 mt-1 ml-1">※ チェック状況は端末ごと・ブラウザごとに自動保存されます（ローカルストレージ利用）</div>
       </div>
       <div className="flex flex-wrap gap-2 mb-4 items-center text-xs md:text-sm">
         <label>
@@ -95,7 +97,49 @@ export default function MountChecklistClient({}: Props) {
         </label>
       </div>
       <section className="bg-white/90 rounded-2xl border border-blue-100 p-4 md:col-span-2 shadow transition hover:shadow-lg duration-200">
-        <div className="overflow-x-auto w-full">
+        {/* モバイル：カード型リスト */}
+        <div className="block md:hidden">
+          <ul className="space-y-3">
+            {filteredList.map((mount) => (
+              <li
+                key={mount.name}
+                className={
+                  `border rounded-xl p-3 flex flex-col gap-1 shadow-sm transition cursor-pointer` +
+                  (checkedMount.includes(mount.name) ? ' bg-green-100/70 border-green-200' : ' bg-white')
+                }
+                onClick={() => setCheckedMount(prev => prev.includes(mount.name) ? prev.filter(x => x !== mount.name) : [...prev, mount.name])}
+              >
+                <div className="flex items-center gap-2">
+                  <input
+                    type="checkbox"
+                    checked={checkedMount.includes(mount.name)}
+                    onClick={e => e.stopPropagation()}
+                    onChange={() => setCheckedMount(prev => prev.includes(mount.name) ? prev.filter(x => x !== mount.name) : [...prev, mount.name])}
+                    className="w-5 h-5"
+                  />
+                  <span className="font-bold text-base text-blue-900">
+                    {mount.name_url ? (
+                      <a href={mount.name_url} target="_blank" rel="noopener noreferrer" className="underline text-blue-700 hover:text-blue-900 break-words">{mount.name}</a>
+                    ) : mount.name}
+                  </span>
+                </div>
+                <div className="flex items-center gap-2 text-sm">
+                  <span className="font-bold text-lg text-gray-700">{mount.ticket}</span>
+                  <span className="text-gray-500">【銀】チケ</span>
+                </div>
+                {mount.remarks && (
+                  <div className="text-xs text-gray-700 break-words">
+                    {mount.remarks_url ? (
+                      <a href={mount.remarks_url} target="_blank" rel="noopener noreferrer" className="underline text-blue-700 hover:text-blue-900 break-words">{mount.remarks}</a>
+                    ) : mount.remarks}
+                  </div>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+        {/* PC：従来のテーブル */}
+        <div className="hidden md:block overflow-x-auto w-full">
           <table className="min-w-[600px] w-full table-auto border border-gray-300 text-xs md:text-sm">
             <thead className="bg-gray-100 sticky top-0 z-10">
               <tr>
@@ -121,6 +165,8 @@ export default function MountChecklistClient({}: Props) {
                       checked={checkedMount.includes(mount.name)}
                       onClick={e => e.stopPropagation()}
                       onChange={() => setCheckedMount(prev => prev.includes(mount.name) ? prev.filter(x => x !== mount.name) : [...prev, mount.name])}
+                      className="w-6 h-6 cursor-pointer rounded border-2 border-blue-300 text-green-500 focus:ring-2 focus:ring-blue-200 focus:border-blue-400 transition"
+                      style={{ minWidth: 24, minHeight: 24, background: '#f8fafc' }}
                     />
                   </td>
                   <td className="p-2 align-middle">

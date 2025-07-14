@@ -11,12 +11,12 @@ const MONTHLY_ANBAS={
 
 const MONTHLY_LOGINPOINT={
   loginPointGrantPeriod: "8月4日（月）23:00頃",
-  loginPointExchangePeriod: "2025年8月11日（月）23:59頃",
+  loginPointExchangePeriod: "8月11日（月）23:59頃",
 };
 
 // --- 月次更新用定数 ---
 const MONTHLY_CAMPAIGN = {
-  currentPeriod: "2025年7月11日（金）17:00頃 ～ 7月17日（木）23:59頃",
+  currentPeriod: "7月11日（金）17:00頃 ～ 7月17日（木）23:59頃",
   nextCampaignPeriod: "未定",
   currentCampaignList: [
     {
@@ -224,7 +224,7 @@ export default async function Home() {
                   className="text-yellow-700 font-bold underline hover:text-yellow-900"
                   title="公式バージョンアップ情報"
                 >
-                  2025年7月10日（木）
+                  7月10日（木）
                 </a>
               </div>
             </div>
@@ -301,17 +301,6 @@ export default async function Home() {
         {/* 下部余白 */}
         <div className="h-12 md:h-16" />
 
-        {/* フッター */}
-        <footer className="w-full bg-[#f7f3e7] border-t border-[#e0e0c0] text-yellow-900 text-xs md:text-sm py-4 flex flex-col items-center font-semibold">
-          <div className="max-w-6xl w-full flex flex-col md:flex-row items-center justify-between gap-2 px-4">
-            <span>© 2025 Moglog / FINAL FANTASY XI Community Fan Project</span>
-            <span>
-              <a href="https://www.playonline.com/ff11/" target="_blank" rel="noopener noreferrer" className="underline hover:text-yellow-700">公式サイト</a>
-              <span className="mx-2">|</span>
-              <a href="https://wiki.ffo.jp/" target="_blank" rel="noopener noreferrer" className="underline hover:text-yellow-700">FF11用語辞典</a>
-            </span>
-          </div>
-        </footer>
       </main>
     );
 }
